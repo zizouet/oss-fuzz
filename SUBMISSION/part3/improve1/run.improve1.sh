@@ -7,8 +7,8 @@ cleanup() {
 }
 trap cleanup EXIT
 
-cp SUBMISSION/part3/improve1/ftfuzzer.cc ../../../projects/freetype2/
-cp SUBMISSION/part3/improve1/Dockerfile ../../../projects/freetype2/
+cp SUBMISSION/part3/improve1/ftfuzzer.cc projects/freetype2/
+cp SUBMISSION/part3/improve1/Dockerfile projects/freetype2/
 
 
 cd oss-fuzz || exit
