@@ -1,8 +1,8 @@
 diff --git a/projects/freetype2/Dockerfile b/projects/freetype2/Dockerfile
-index 10050d262..163a387b3 100644
+index 10050d262..434837992 100644
 --- a/projects/freetype2/Dockerfile
 +++ b/projects/freetype2/Dockerfile
-@@ -23,14 +23,18 @@ RUN apt-get update &&  \
+@@ -23,14 +23,17 @@ RUN apt-get update &&  \
        libtool          \
        pkg-config       \
        make             \
@@ -23,10 +23,8 @@ index 10050d262..163a387b3 100644
  
 -COPY build.sh $SRC/
 +COPY build.sh *.cc $SRC/
-+COPY custom_fonts/* $SRC/font-corpus/
-\ No newline at end of file
 diff --git a/projects/freetype2/build.sh b/projects/freetype2/build.sh
-index c4a63c6eb..89b3dbf66 100755
+index c4a63c6eb..57d0bf84a 100755
 --- a/projects/freetype2/build.sh
 +++ b/projects/freetype2/build.sh
 @@ -3,28 +3,26 @@
@@ -74,4 +72,4 @@ index c4a63c6eb..89b3dbf66 100755
  
 -zip -ju "${OUT}/ftfuzzer_seed_corpus.zip" "${SRC}/font-corpus/"*
 +# 3) Seed corpus
-+zip -j "$OUT/custom_seed_corpus.zip" "$SRC/font-corpus/"*
++zip -j "$OUT/svg_seed_corpus.zip" "$SRC/font-corpus/"*
