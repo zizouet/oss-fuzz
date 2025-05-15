@@ -8,7 +8,7 @@ cleanup() {
 # Register the cleanup function to run on EXIT signal
 trap cleanup EXIT
 
-git apply SUBMISSION/part3/improve2/oss-fuzz.diff
+git apply --ignore-whitespace --reject --whitespace=fix SUBMISSION/part3/improve2/oss-fuzz.diff
 
 PROJECT_NAME="freetype2"
 FUZZER_NAME="ftfuzzer"
