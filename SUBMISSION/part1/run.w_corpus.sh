@@ -17,7 +17,7 @@ RUN_TIME=$((4 * 60 * 60))
 FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
 echo "Building output folder"
-mkdir "$CORPUS_NAME"
+mkdir -p "$CORPUS_NAME"
 
 echo "Building image for $PROJECT_NAME"
 python3 infra/helper.py build_image "$PROJECT_NAME"

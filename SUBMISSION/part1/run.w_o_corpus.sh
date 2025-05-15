@@ -14,6 +14,8 @@ RUN_TIME=$((4 * 60 * 60))
 CORPUS_NAME="build/out/run.w__ocorpus/"
 FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
+mkdir -p "$CORPUS_NAME"
+
 echo "Applying git diff"
 git apply SUBMISSION/part1/oss-fuzz.diff || { echo "Patch failed"; exit 1; }
 git apply SUBMISSION/part1/project.diff || { echo "Patch failed"; exit 1; }
