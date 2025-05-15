@@ -14,12 +14,10 @@ RUN_TIME=$((4 * 60 * 60))
 CORPUS_NAME="build/out/run.w__ocorpus/"
 FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
-mkdir -p "$CORPUS_NAME"
-
 sed -i 's|^zip -ju "${OUT}/ftfuzzer_seed_corpus.zip" "${SRC}/font-corpus/"*|#&|' projects/freetype2/build.sh
 
 echo "Building output folder"
-mkdir "$CORPUS_NAME"
+mkdir -p "$CORPUS_NAME"
 
 echo "Building image for $PROJECT_NAME"
 python3 infra/helper.py build_image "$PROJECT_NAME"
