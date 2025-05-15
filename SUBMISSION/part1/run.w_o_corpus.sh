@@ -6,8 +6,8 @@ RUN_TIME=$((4 * 60 * 60))
 FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
 echo "Applying git diff"
-git apply oss-fuzz.diff
-git apply project.diff
+git apply SUBMISSION/part1/oss-fuzz.diff
+git apply SUBMISSION/part1/project.diff
 
 echo "Building output folder"
 mkdir build/out/run.w_o_corpus
