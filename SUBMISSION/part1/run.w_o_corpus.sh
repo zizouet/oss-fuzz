@@ -16,9 +16,7 @@ FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
 mkdir -p "$CORPUS_NAME"
 
-echo "Applying git diff"
-git apply SUBMISSION/part1/oss-fuzz.diff || { echo "Patch failed"; exit 1; }
-git apply SUBMISSION/part1/project.diff || { echo "Patch failed"; exit 1; }
+sed -i 's|^zip -ju "${OUT}/ftfuzzer_seed_corpus.zip" "${SRC}/font-corpus/"*|#&|' projects/freetype2/build.sh
 
 echo "Building output folder"
 mkdir "$CORPUS_NAME"
