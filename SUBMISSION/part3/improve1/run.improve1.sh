@@ -1,17 +1,8 @@
 #!/bin/bash
 set -e  # Exit immediately if a command exits with a non-zero status
 
-cleanup() {
-  echo "Cleaning up oss-fuzz directory..."
-  rm -rf oss-fuzz
-}
-trap cleanup EXIT
-
 cp SUBMISSION/part3/improve1/ftfuzzer.cc projects/freetype2/
 cp SUBMISSION/part3/improve1/Dockerfile projects/freetype2/
-
-
-cd oss-fuzz || exit
 
 
 PROJECT_NAME="freetype2"
