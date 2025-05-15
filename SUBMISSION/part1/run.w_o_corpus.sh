@@ -1,8 +1,16 @@
+#!/bin/bash
+set -e  # Exit immediately if a command exits with a non-zero status
+# Define cleanup function
+cleanup() {
+  echo "Cleaning up..."
+  git reset --hard
+}
+# Register the cleanup function to run on EXIT signal
+trap cleanup EXIT
+
 PROJECT_NAME="freetype2"
 FUZZER_NAME="ftfuzzer"
 RUN_TIME=$((4 * 60 * 60))
-
-
 FUZZER_ARGS="-rss_limit_mb=2560 -fork=$(nproc) -ignore_crashes=1"
 
 echo "Applying git diff"
