@@ -1,0 +1,13 @@
+diff --git a/projects/freetype2/Dockerfile b/projects/freetype2/Dockerfile
+index 10050d262..4acd0ffd5 100644
+--- a/projects/freetype2/Dockerfile
++++ b/projects/freetype2/Dockerfile
+@@ -32,5 +32,7 @@ RUN git clone https://github.com/unicode-org/text-rendering-tests.git && cp text
+ 
+ RUN git clone --depth 1 https://github.com/freetype/freetype2-testing.git
+ WORKDIR freetype2-testing
+
++COPY ftfuzzer.cc fuzzing/src/legacy/ftfuzzer.cc
+ COPY build.sh $SRC/
++
++
