@@ -29,8 +29,8 @@ echo "Running $FUZZER_NAME for 4 hours"
 python3 infra/helper.py run_fuzzer "$PROJECT_NAME" "$FUZZER_NAME" --corpus-dir "$CORPUS_NAME" --run_time="$RUN_TIME" -e FUZZER_ARGS="$FUZZER_ARGS"
 
 echo "Creating coverage report"
-python3 infra/helper.py build_fuzzers --sanitizer coverage freetype2
-python3 infra/helper.py coverage freetype2 --corpus-dir "$CORPUS_NAME" --fuzz-target ftfuzzer
+python3 infra/helper.py build_fuzzers --sanitizer coverage "$PROJECT_NAME"
+python3 infra/helper.py coverage "$PROJECT_NAME" --corpus-dir "$CORPUS_NAME" --fuzz-target "$FUZZER_NAME"
 
 
 
