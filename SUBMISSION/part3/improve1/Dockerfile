@@ -30,7 +30,7 @@ RUN apt-get update &&  \
 ADD https://github.com/adobe-fonts/adobe-variable-font-prototype/releases/download/1.001/AdobeVFPrototype.otf $SRC/font-corpus/
 RUN git clone https://github.com/unicode-org/text-rendering-tests.git && cp text-rendering-tests/fonts/* $SRC/font-corpus
 
-RUN git clone --depth 1 https://github.com/zizouet/freetype2-testing.git
+RUN git clone --depth 1 https://github.com/freetype/freetype2-testing.git
 WORKDIR freetype2-testing
 
 COPY ftfuzzer.cc fuzzing/src/legacy/ftfuzzer.cc
